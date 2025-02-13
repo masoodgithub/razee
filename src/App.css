@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+
+
+.menu, .log-in { 
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-around;
+  align-self: center;
+  font-size: 1.25rem;
+}
+.main{
+  grid-column: 1/-1;
+  border: 1px solid red;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.log-in input{
+  background-color: rgb(132, 255, 0);
+  border: none;
+  border-radius: 5px;
+  padding: 0 10px ;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.footer{
+  background-color: #ccc;
+  grid-column: 1/-1;
+  padding: 5px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.linkbar {
+  cursor: pointer;
+  padding: 5px;
 }
-
-.App-link {
-  color: #61dafb;
+.linkbar:hover{ 
+  background-color: #fff;
+  border-radius: 5px;
+  color: green;
 }
+.linkbar:active {
+  background-color: green;
+  color:#fff;
+  border-radius:10px;
+  padding: 5px;
+}
+.home {
+  color: #fff; 
+  padding: 1vh 1vw;
+  display: grid;
+  align-self: center;
+  justify-self: center;
+}
+.cmd{
+  padding: 1vh 1vw;
+}
+.cmdo {
+  margin-top: 2vh;
+}
+.cmox{
+  margin-top: 2vh;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+span {
+  padding: 1vh 1vw;
+  border: 1px solid hsl(0, 15%, 8%);
+}
+h4{
+  margin-bottom: 2vh;
+}
+h2, h3 {
+  text-decoration: underline;
+}
+.appNewLook {
+  background-color: #ece6e6;
+}
+.appnav{
+}
+.appoutlet{
+  min-height: 85vh;
+ justify-self: center;
+ align-self: center;
+}
+.appfooter{
+  height: 5vh;
+
 }

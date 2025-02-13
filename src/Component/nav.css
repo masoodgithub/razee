@@ -1,0 +1,137 @@
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    justify-items: center;
+    background-color: #156c94;
+}
+.userTable{
+	margin: 2vw 2vh;
+	justify-self: center;
+	align-self: center;
+}
+
+ul{
+    list-style-type: none;
+    font-size: 1vw;
+    color: #402541;
+    border-radius: 10px;
+}
+li {
+    display: inline-flex;
+    margin-right: 2vw;
+}
+a {
+    text-decoration: none;
+    color: rgb(199, 163, 163);
+
+}
+
+a:hover {
+    color: #eee;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.active {
+    text-decoration: underline; 
+    color: #eee;
+    padding: 1vh 1vw;
+    text-decoration: none;
+    background-color: #158e94;
+    border-radius: 10px;
+}
+.logo{
+    text-align: center;
+    font-size: 1vw;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(237, 31, 31);
+    margin-top: 1cap;
+  }
+  select {
+	width: 100%;
+  }
+  .report input {
+	margin: 0 2vw;
+
+  }
+
+  table { 
+	width: 70vw; 
+	border-collapse: collapse; 
+	margin: 5vh auto ;
+	}
+
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+	background: #eee; 
+	}
+
+th { 
+	background: #3498db; 
+	color: white; 
+	font-weight: bold; 
+	}
+
+td, th { 
+	padding: 1vh 1vw; 
+	border: 1px solid #ccc; 
+	text-align: left; 
+	font-size: 1vw;
+	}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table { 
+	  	width: 100vw; 
+	}
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50vw; 
+	}
+
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45vw; 
+		padding-right: 1vw; 
+		white-space: nowrap;
+		/* Label the data */
+		content: attr(data-column);
+
+		color: #000;
+		font-weight: bold;
+	}
+
+}
+.add{
+	padding:20px;
+}

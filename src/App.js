@@ -3,15 +3,20 @@ import Navbar from './Component/nav';
 import RecipientsView from './features/recipientView';
 import store from './App/Store';
 import { Provider } from 'react-redux';
-import UpdateUser from './features/update';
+import { Routes, Route } from 'react-router-dom';
+import Home from './features/home';
 
 function App() {
   return (
     <Provider store={store}>
-    <div className="App">
+   
      <Navbar />
-     <UpdateUser />
-    </div>
+     <Routes >
+      <Route path='/' element={<Home />} />
+      <Route path='/recipient' element={<RecipientsView />} />
+      <Route path='*' element={<Home />} />
+     </Routes>
+  
     </Provider>
   );
 }

@@ -15,8 +15,8 @@ export const deleteUser= async(id) => {
     .delete('http://localhost:8000/api/delete/user/'+ id);
     return res;
 }
-export const updateUser= async(user) => {
-    const res = await axios
-    .update('http://localhost:8000/api/delete/user', user);
-    return res;
-}
+// export const updateUser= async(user) => {
+//     const res = await axios
+//     .update('http://localhost:8000/api/delete/user', user);
+//     return res;
+// }

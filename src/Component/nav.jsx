@@ -1,20 +1,20 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './nav.css';
-import { NavLink } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function navbar() {
   return (
    <nav className='layout'>
    <div className='logo'>ALIF-NGO</div>
    <div>
-    <ul>
-      <li><NavLink to='/'>Home</NavLink></li>
-      <li><NavLink to='/recipient'>Recipient</NavLink></li>
-      <li><NavLink to='/activity'>Activity</NavLink></li>
-      <li><NavLink to='/report'>Report</NavLink></li>
-      <li><NavLink to='/help'>Help</NavLink></li>
-    </ul>
+    
+      <Link to='/'>Home</Link>
+      <Link to='/recipient'>Recipient</Link>
+      <Link to='/activity'>Activity</Link>
+      <Link to='/report'>Report</Link>
+      <Link to='/help'>Help</Link>
+    
     </div>
    </nav>
   );

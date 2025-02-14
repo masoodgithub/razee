@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import '../Component/nav.css';
-import { deleteRecipient, fetchRecipient, submitRecipient, update} from './recipientSlice';
+import { deleteRecipient, fetchRecipient, submitRecipient} from './recipientSlice';
 
 const RecipientsView = () => {
-const users = useSelector(state=> state.users.update);
+const users = useSelector(state=> state.users.recipient);
 const dispatch = useDispatch();
 const [addRecipient, setAddRecipient ]=useState(false);
 const [user, setUser ] =useState({
@@ -32,7 +32,6 @@ const getUserByID = async (id) => {
     dispatch(deleteRecipient(id))
 }
 const updateUser =(user) =>{
-    dispatch(update())
 }
 useEffect(() => {
     dispatch(fetchRecipient());

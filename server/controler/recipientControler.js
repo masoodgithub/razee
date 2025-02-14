@@ -29,7 +29,7 @@ export const getAllUsers = async (req, res)=>{
 
 }
 
-export const deletUser = async(req, res)=>{
+export const deleteUser = async(req, res)=>{
     try{
         const id = req.params.id;
         const userExist = User.findById(id);
@@ -45,3 +45,19 @@ export const deletUser = async(req, res)=>{
 
 }
 
+
+export const updateUser = async(req, res)=>{
+    try{
+        const id = req.params.id;
+        const userExist = User.findById(id);
+        if(!userExist){
+            return res.status(404).json({message: 'user not found'})
+        }
+        await User.findByIdAndUpdate(id);
+        res.status(200).json({message:"user updated successfully"})
+    }
+    catch(error) {
+        res.status(500).json({message: error.message});
+    }
+
+}

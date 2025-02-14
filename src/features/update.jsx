@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateRecipient } from './recipientSlice';
+// import { updateRecipient } from './recipientSlice';
 
 const UpdateUser =() => {
     const users = useSelector((state)=> state.users.user);
+    console.log(users)
     const [user, setUser ] =useState({
         name:"",
         telno:"",
@@ -22,7 +23,7 @@ const UpdateUser =() => {
     
     const userSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateRecipient())    
+    // dispatch(updateRecipient())    
     }
     return (
         <div className="addUserTable">

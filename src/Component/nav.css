@@ -13,33 +13,33 @@
 ul{
     list-style-type: none;
     font-size: 1vw;
-    color: #402541;
+    color: #b398b4;
     border-radius: 10px;
+	font-size: 20px;
 }
 li {
     display: inline-flex;
     margin-right: 2vw;
 }
 a {
-    text-decoration: none;
-    color: rgb(199, 163, 163);
-
+    text-decoration: none !important;
+    color: rgb(236, 229, 229) !important;
 }
 
 a:hover {
-    color: #eee;
-    border-radius: 10px;
-    text-decoration: none;
-    cursor: pointer;
+    color: #eee !important;
+    border-radius: 10px !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
 }
 
 a.active {
-    text-decoration: underline; 
-    color: #eee;
-    padding: 1vh 1vw;
-    text-decoration: none;
-    background-color: #158e94;
-    border-radius: 10px;
+    text-decoration: underline !important; 
+    color: #eee !important;
+    padding: 1vh 1vw !important;
+    text-decoration: none !important;
+    background-color: #158e94 !important;
+    border-radius: 10px !important;
 }
 .logo{
     text-align: center;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { updateRecipient } from './recipientSlice';
 
 const UpdateUser =() => {
@@ -12,7 +12,6 @@ const UpdateUser =() => {
         amount:"",
         info:"",
       });
-    const dispatch = useDispatch();
     
     const inputChange =(e) =>{
         setUser({

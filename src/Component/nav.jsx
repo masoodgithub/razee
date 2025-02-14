@@ -7,14 +7,14 @@ function navbar() {
   return (
    <nav className='layout'>
    <div className='logo'>ALIF-NGO</div>
-   <div>
-    
-      <Link to='/'>Home</Link>
-      <Link to='/recipient'>Recipient</Link>
-      <Link to='/activity'>Activity</Link>
-      <Link to='/report'>Report</Link>
-      <Link to='/help'>Help</Link>
-    
+   <div> 
+      <ul>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/recipient'>Recipient</Link></li>
+        <li><Link to='/activity'>Activity</Link></li>
+        <li><Link to='/rep'>Report</Link></li>
+        <li><Link to='/helpuser'>Help</Link> </li>
+      </ul> 
     </div>
    </nav>
   );

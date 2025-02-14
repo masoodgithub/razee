@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import '../Component/nav.css';
 import { deleteRecipient, fetchRecipient, submitRecipient} from './recipientSlice';
+import { useNavigate } from 'react-router-dom';
 
 const RecipientsView = () => {
 const users = useSelector(state=> state.users.recipient);
 const dispatch = useDispatch();
 const [addRecipient, setAddRecipient ]=useState(false);
+const navigate = useNavigate();
 const [user, setUser ] =useState({
   name:"",
   telno:"",
@@ -32,6 +34,8 @@ const getUserByID = async (id) => {
     dispatch(deleteRecipient(id))
 }
 const updateUser =(user) =>{
+  navigate('/updateUser', {replace: true});
+
 }
 useEffect(() => {
     dispatch(fetchRecipient());

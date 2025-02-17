@@ -1,25 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import '../Component/nav.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { ActivitySubmits } from './activitySlice';
+import { activitySubmits } from './activitySlice';
 import {fetchRecipient} from './recipientSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Activity =() => {
     const users = useSelector((state)=> state.users.recipient);
     console.log(users)
+    const navigate =useNavigate();
     const dispatch = useDispatch()
-  const [tel, setTel ]=useState();
-const [pers, setPers ]= useState({
-  telno:'',
-  acctype:'',
-  amount:'',
-  cdt: new Date(),
-});
+    const [tel, setTel ]=useState();
+    const [pers, setPers ]= useState({
+      name:'',
+      telno:'',
+      acctype:'',
+      amount:'',
+      cdt: new Date(),
+    });
 const handleNameChange = (n) =>{ 
-    users?.filter((user) => {
+    users?.forEach((user) => {
       if(user.name === n) {
         setTel(user.telno);
-        setPers({ ...pers, telno : user.telno })
+        setPers({ 
+          ...pers, 
+          name: n, 
+          telno : user.telno 
+        })
       }
     })
   }
@@ -33,13 +40,18 @@ const handleAcctTypeChange =(n)=>{
       }  
  }
 
-const accountSubmit = async() => {
+const accountSubmit = async(e) => {
   if(pers.amount ==="" || pers.amount === undefined)return;
-  dispatch(ActivitySubmits(pers));  
+  e.preventDefault();
+  dispatch(activitySubmits(pers));  
+  navigate('/', {replace: true}
+
+  )
 }
+
   useEffect(()=>{
     dispatch(fetchRecipient())
-  },[]);
+  });
   
   return (
         <div style={{
@@ -83,7 +95,7 @@ const accountSubmit = async() => {
             <td >
               
               <button className='btn btn-primary mx-1' 
-              disabled = {pers.amount.length !== 4}
+              disabled = {pers.amount.length <= 3}
               onClick={accountSubmit}> Submit </button>
       
             </td>

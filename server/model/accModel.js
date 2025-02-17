@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
 
 const accSchema=  new mongoose.Schema({
+    name: {
+        type: String,
+        require: true
+    },
     telno: {
         type: String,
         require:true

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getExpense,getDonation,ActivitySubmit, getSalary, getAllActivitis } from "../API/getActivityData";
+import { getExpense,getDonation,activitySubmit, getSalary, getAllActivitis } from "../API/getActivityData";
 
 export const getAllActivity = createAsyncThunk('activity/getActivity', async()=>{
     const res =await getAllActivitis();
@@ -7,18 +7,18 @@ export const getAllActivity = createAsyncThunk('activity/getActivity', async()=>
 });
 export const getExpenses = createAsyncThunk('activity/getExpense', async()=>{
     const res =await getExpense();
-    return res.data;
+    return res;
 });
 export const getDonations = createAsyncThunk('activity/getDonation', async()=>{
     const res =await getDonation();
-    return res.data;
+    return res;
 });
 export const getSalaries = createAsyncThunk('activity/getSalary', async()=>{
     const res =await getSalary();
-    return res.data;
+    return res;
 });
-export const ActivitySubmits = createAsyncThunk('activity/ActivitySubmit', async(acct)=>{
-    const res =await ActivitySubmit(acct);
+export const activitySubmits = createAsyncThunk('activity/ActivitySubmit', async(acct)=>{
+    const res =await activitySubmit(acct);
     return res.data;
 });
 
@@ -28,10 +28,9 @@ const activitySlice = createSlice({
         isLoading: false,
         activity:[],  
         isError: false,
-        submitedActivity:[],
-        tSalary:null,
-        tDonation:null,
-        tExpense:null,
+        expense:[],
+        salary:[],
+        donation:[]
     },
     extraReducers: (builder) =>{
         builder
@@ -56,17 +55,17 @@ const activitySlice = createSlice({
         .addCase(getExpenses.fulfilled, (state, action)=>{
             state.isLoading=false;
             state.isError = false;
-            state.activity = action.payload;
+            state.expense = action.payload;
         })
         .addCase(getDonations.fulfilled, (state, action)=>{
             state.isLoading=false;
             state.isError = false;
-            state.activity = action.payload;
+            state.donation = action.payload;
         })
         .addCase(getSalaries.fulfilled, (state, action)=>{
             state.isLoading=false;
             state.isError = false;
-            state.activity = action.payload;
+            state.salary = action.payload;
         })
         .addCase(getAllActivity.pending, (state)=>{
                 state.isLoading= true;
@@ -79,15 +78,15 @@ const activitySlice = createSlice({
         .addCase(getAllActivity.rejected, (state, action)=>{
             state.isError = action.error?.message;
         })
-        .addCase(ActivitySubmits.pending, (state)=>{
+        .addCase(activitySubmits.pending, (state)=>{
             state.isLoading= true;
     })
-    .addCase(ActivitySubmits.fulfilled, (state, action)=>{
+    .addCase(activitySubmits.fulfilled, (state, action)=>{
         state.isLoading = false;
         state.isError = false;
         state.activity= action.payload;
     })
-    .addCase(ActivitySubmits.rejected, (state, action)=>{
+    .addCase(activitySubmits.rejected, (state, action)=>{
         state.isError = action.error?.message;
     })
         

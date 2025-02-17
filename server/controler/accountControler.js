@@ -6,10 +6,10 @@ export const accountActivity = async(req, res) =>{
         const newAccountActivity = new Acct(req.body);
         const {telno} = newAccountActivity;
 
-    const existtelno = await Acct.findOne({telno});
-    if(existtelno){
-        return res.status(400).json({message:"account alreadt exist"});
-    }
+    // const existtelno = await Acct.findOne({telno});
+    // if(existtelno){
+    //     return res.status(400).json({message:"account alreadt exist"});
+    // }
     const saveData = await newAccountActivity.save();  
     res.status(200).json(saveData)
     } catch(error) {

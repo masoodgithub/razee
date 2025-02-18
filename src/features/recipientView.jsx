@@ -34,9 +34,17 @@ const getUserByID = async (id) => {
     dispatch(deleteRecipient(id))
 }
 const updateUser =(user) =>{
-  navigate('/updateUser', {replace: true});
-
+  const{name, telno, _id, info, amount, acctype}= user;
+  navigate('/update', {state: {
+    name,
+    telno,
+    acctype,
+    _id,
+    info,
+    amount
+  }});
 }
+
 useEffect(() => {
     dispatch(fetchRecipient());
 });
@@ -65,7 +73,7 @@ useEffect(() => {
           <td>{item.info}</td>
           <td > 
             <button className="btn btn-info mx-2" onClick={ ()=> getUserByID(item._id)}>Delete </button>
-          <button className="btn btn-info" onClick={updateUser}> Edit/Update</button>
+          <button className="btn btn-info" onClick={()=>updateUser(item)}> Edit/Update</button>
           </td>
         </tr>
         )

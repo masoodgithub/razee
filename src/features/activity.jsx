@@ -44,9 +44,7 @@ const accountSubmit = async(e) => {
   if(pers.amount ==="" || pers.amount === undefined)return;
   e.preventDefault();
   dispatch(activitySubmits(pers));  
-  navigate('/', {replace: true}
-
-  )
+  navigate('/', {replace: true})
 }
 
   useEffect(()=>{

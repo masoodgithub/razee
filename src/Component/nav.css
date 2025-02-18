@@ -21,9 +21,13 @@ li {
     display: inline-flex;
     margin-right: 2vw;
 }
+span a {
+    text-decoration: none !important;
+    color: rgb(103, 9, 9) !important;
+}
 a {
     text-decoration: none !important;
-    color: rgb(236, 229, 229) !important;
+    color: rgb(219, 209, 209) !important;
 }
 
 a:hover {

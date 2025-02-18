@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-// import { updateRecipient } from './recipientSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateRecipient } from './recipientSlice';
+import { useLocation } from 'react-router-dom';
 
 const UpdateUser =() => {
     const users = useSelector((state)=> state.users.user);
-    console.log(users)
+    const pers = useLocation();
+    const { name, telno, acctype, amount, info,_id }= pers.state;
+    console.log(users);
+    const dispatch = useDispatch();
     const [user, setUser ] =useState({
-        name:"",
-        telno:"",
-        acctype:"",
-        amount:"",
-        info:"",
+        name,
+        telno,
+        acctype,
+        amount,
+        info,
+        _id
       });
     
     const inputChange =(e) =>{
@@ -22,30 +27,30 @@ const UpdateUser =() => {
     
     const userSubmit = (e) => {
     e.preventDefault();
-    // dispatch(updateRecipient())    
+    dispatch(updateRecipient(user))    
     }
     return (
         <div className="addUserTable">
       <h3>Update Recipient</h3>
       <div className="update">
-          <label  for='name'>Name:</label>
-          <input type='text' name="name" onChange={inputChange}/>
+          <label  htmlFor='name'>Name:</label>
+          <input type='text' name="name" defaultValue={name}onChange={inputChange}/>
         </div>
         <div className="update">
-          <label  for='telno'>Tel no:</label>
-          <input type='text' name='telno' onChange={inputChange}/>
+          <label  htmlFor='telno'>Tel no:</label>
+          <input type='text' name='telno' defaultValue={telno} onChange={inputChange}/>
       </div>
       <div className="update">
-          <label  for='acctype'>Acc Type:</label>
-          <input type='text' name='acctype'onChange={inputChange}/>
+          <label  htmlFor='acctype'>Acc Type:</label>
+          <input type='text' name='acctype' defaultValue={acctype} onChange={inputChange}/>
       </div>
       <div className="update">
-          <label  for='amount'>Amount:</label>
-          <input type='text' name='amount'onChange={inputChange}/>
+          <label  htmlFor='amount'>Amount:</label>
+          <input type='text' name='amount' defaultValue={amount} onChange={inputChange}/>
       </div>
       <div className="update">
-          <label  for='info'>Information:</label>
-          <textarea type='text' rows={1} name='info'onChange={inputChange}/>
+          <label  htmlFor='info'>Information:</label>
+          <textarea type='text' rows={5} name='info' defaultValue={info} onChange={inputChange}/>
       </div>
       <button type='button' className='btn btn-sm btn-info' onClick={userSubmit}> Submit </button>
       </div>

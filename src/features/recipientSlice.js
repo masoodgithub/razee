@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {getUser, postUser, deleteUser} from '../API/getsUsers';
+import {getUser, postUser, deleteUser, updateUser} from '../API/getsUsers';
 
 export const fetchRecipient = createAsyncThunk("gets/users", 
     async() => {
@@ -13,6 +13,10 @@ export const submitRecipient = createAsyncThunk("post/user",
 });
 export const deleteRecipient = createAsyncThunk('delete/user', async(id)=> {
     const res = await deleteUser(id);
+    return res;
+});
+export const updateRecipient = createAsyncThunk('update/user', async(user)=> {
+    const res = await updateUser(user);
     return res;
 })
 

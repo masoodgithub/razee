@@ -1,5 +1,9 @@
 
-
+.app {
+  margin-top: 4vh;
+ display: grid;
+ justify-content: center;
+}
 .menu, .log-in { 
   display: flex; 
   flex-direction: row;

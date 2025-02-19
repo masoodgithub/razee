@@ -5,6 +5,7 @@ import  dotenv from 'dotenv';
 import route from './router/recipientRouter.js';
 import cors from 'cors';
 import acctRouter from './router/accountRouter.js';
+import depositeRouter from './router/depositeRouter.js';
 
 const app = express();
 
@@ -24,6 +25,6 @@ mongoose.connect("mongodb://localhost:27017/mern").then(()=>{
     })
 })
 .catch((err) => console.log(err));
-
+app.use('/api/d', depositeRouter)
 app.use('/api/ac', acctRouter)
 app.use('/api', route)

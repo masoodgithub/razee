@@ -5,6 +5,10 @@ const depositeSchima = new mongoose.Schema({
         type: Number,
         require: true
     },
+    month: {
+        type:String,
+        require: true
+    },
     cdt: {
         type: Date,
         require: true

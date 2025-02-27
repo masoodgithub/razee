@@ -46,6 +46,9 @@ const accountSubmit = async(e) => {
   dispatch(activitySubmits(pers));  
   navigate('/', {replace: true})
 }
+const goToDepositePage =() => {
+  navigate('/Deposite')
+}
 
   useEffect(()=>{
     dispatch(fetchRecipient())
@@ -65,7 +68,7 @@ const accountSubmit = async(e) => {
             <th style={{width: "20%"}}>Tel No</th>
             <th>Acc Type</th>
             <th>Amount</th>
-            <th style={{width: "20%"}}>Action</th>
+            <th style={{width: "30%"}}>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -95,6 +98,8 @@ const accountSubmit = async(e) => {
               <button className='btn btn-primary mx-1' 
               disabled = {pers.amount.length <= 3}
               onClick={accountSubmit}> Submit </button>
+              <button className='btn btn-primary mx-1' 
+              onClick={goToDepositePage}> Deposite Activity </button>
       
             </td>
           </tr>

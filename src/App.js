@@ -13,6 +13,8 @@ import Report from './features/report';
 import Expense from './features/expense';
 import Donation from './features/donation';
 import Salary from './features/salary';
+import Deposite from './features/deposite';
+
 function App() {
   return (
     <Provider store={store}>
@@ -30,6 +32,7 @@ function App() {
       <Route path="/donation" element={<Donation />} />
       <Route path='/salary' element={<Salary />} />
       <Route path='/report' element={<Report />} />
+      <Route path='/deposite' element={<Deposite />} />
       <Route path='*' element={<Home />} />
      </Routes>
   

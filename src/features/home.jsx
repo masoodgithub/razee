@@ -12,6 +12,7 @@ const Home = () => {
   const expenses =useSelector((state)=>state.activity.expense);
   const donations =useSelector((state)=> state.activity.donation);
   const salaries = useSelector((state) => state.activity.salary);
+  const deposite = useSelector((state)=> state.deposite)
   const dispatch =useDispatch();
 
   const getTotal =() => {
@@ -64,6 +65,8 @@ return (
           <span className='px' ><Link to="/expense" state={{expenses}}>Details</Link></span>
         </div>
     </div>
+    <h4 className='py-4'>Total monthly Deposite: {deposite}</h4>
+
     <h4 className='py-4'>Total monthly expenditure: {exp+don+sal}</h4>
   </div>
   

@@ -1,19 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { submitDeposite } from "../API/deposite";
+import { submitDeposite, getDeposite } from "../API/deposite";
 
-export const submitDepositeAmount = createAsyncThunk(async(data) => {
+export const submitDepositeAmount = createAsyncThunk('post/deposite', async(data) => {
     const res = await submitDeposite(data)
     return res;
 });
+export const getDepositeAmount= createAsyncThunk('get/deposite', async() => {
+    const res = await getDeposite();
+    return res;
+})
 
 const depositeSlice = createSlice({
-    name: deposite,
+    name: 'deposite',
     initialState: {
         loading: false,
         error: false,
         deposite: 0,
-
     },
     
     extraReducers:(builder) =>{
@@ -27,7 +29,18 @@ const depositeSlice = createSlice({
         })
         .addCase(submitDepositeAmount.rejected, (state, action)=> {
             state.loading=false;
-            state.error = action.error;
+            state.error = action.error?.message;
+        })
+        .addCase(getDepositeAmount.pending, (state)=>{
+            state.loading = true;
+        })
+        .addCase(getDepositeAmount.fulfilled, (state, action)=> {
+            state.loading= false;
+            state.deposite = action.payload;
+        })
+        .addCase(getDepositeAmount.rejected, (state, action)=> {
+            state.loading = false;
+            state.error = action.error?.message;
         })
     }
 })

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './deposite.css';
 import { useDispatch } from 'react-redux';
+import { submitDepositeAmount } from './depositeSlice';
 
 const Deposite =() => {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     const [depositeData, setDepositeData] =useState({
-        deposite:'deposite',
-        month: 'month',
-        date: new Date()
+        mth:'',
+        deposite:'',
+        cdt: new Date()
     });
     const dispatch = useDispatch();
 
@@ -20,7 +21,7 @@ const Deposite =() => {
     }
     
     const submitForm =() => {
-        dispatch();
+        dispatch(submitDepositeAmount(depositeData));
     }
     
     return(
@@ -30,7 +31,7 @@ const Deposite =() => {
                     Deposite Amount:
                 </label>
                 <input className='mx-4' type='number' name='deposite' onChange={handleChange}/>
-                <select id="month" name="month" className='mx-4' onChange={handleChange}>
+                <select  name="mth" className='mx-4' onChange={handleChange}>
                     <option value="">Select Month</option>
                     {months.map(mon => {
                         return (

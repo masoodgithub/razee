@@ -5,7 +5,7 @@ export const submitDeposite = async(amt)=> {
     return res.data;
 }
 
-export const getAllDeposite = async() => {
+export const getDeposite = async() => {
     const res = await axios.get('http://localhost:8000/api/d/getDeposites');
     return res.data;
 }

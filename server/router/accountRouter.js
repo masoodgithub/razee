@@ -1,5 +1,7 @@
 import express from "express";
-import {accountActivity, getAllActivities,getTotalDonation,getTotalExpense,getTotalSalary} from "../controler/accountControler.js";
+import {accountActivity, 
+    getAllActivities,getTotalDonation,
+    getTotalExpense,getTotalSalary} from "../controler/accountControler.js";
 
 
 const acctRouter = express.Router();

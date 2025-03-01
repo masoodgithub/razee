@@ -10,7 +10,7 @@ res.status(200).json(saveData);
     }
 }
 
-export const getDepositeAmount = async() => {
+export const getDepositeAmount = async(req, res) => {
     try{
         const depositeData = await DepositeModel.find();
         if(!depositeData || depositeData.length === 0){

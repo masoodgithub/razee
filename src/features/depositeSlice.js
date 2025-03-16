@@ -15,7 +15,7 @@ const depositeSlice = createSlice({
     initialState: {
         isLoading: false,
         isError: false,
-        deposite: [],
+        depo: [],
     },
 
     extraReducers:(builder) =>{
@@ -25,7 +25,7 @@ const depositeSlice = createSlice({
         })
         .addCase(submitDepositeAmount.fulfilled, (state, action)=>{
             state.isLoading= false;
-            state.deposite = action.payload;
+            state.depo = action.payload;
         })
         .addCase(submitDepositeAmount.rejected, (state, action)=> {
             state.isLoading=false;
@@ -36,7 +36,7 @@ const depositeSlice = createSlice({
         })
         .addCase(getDepositeAmount.fulfilled, (state, action)=> {
             state.isLoading= false;
-            state.deposite = action.payload;
+            state.depo = action.payload;
         })
         .addCase(getDepositeAmount.rejected, (state, action)=> {
             state.isLoading = false;

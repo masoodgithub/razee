@@ -32,7 +32,7 @@ const handleNameChange = (n) =>{
   }
 const handleAcctTypeChange =(n)=>{
     if (n === "Donation" || n === "Salary" ||
-        n === "Expense") {
+        n === "Expense" || n === "Zakat") {
           setPers({ ...pers, acctype : n })
       }  
       else {
@@ -64,11 +64,11 @@ const goToDepositePage =() => {
         <table>
         <thead>
           <tr>
-            <th style={{width: "20%"}}>Name</th>
-            <th style={{width: "20%"}}>Tel No</th>
-            <th>Acc Type</th>
+            <th style={{width: "30%"}}>Name</th>
+            <th style={{width: "10%"}}>Tel No</th>
+            <th style={{width: "30%"}}>Acc Type</th>
             <th>Amount</th>
-            <th style={{width: "30%"}}>Action</th>
+            <th style={{width: "10%"}}>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -87,6 +87,7 @@ const goToDepositePage =() => {
                   <option >Select Account Type</option>
                   <option value='Donation'>Donation</option>
                   <option value='Salary'>Salary </option>
+                  <option value="Zakat">Zakat</option>
                   <option value="Expense">Other Expense</option>
                 </select></td>
             <td >

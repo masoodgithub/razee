@@ -40,6 +40,18 @@ export const getTotalExpense = async (req, res) =>{
         res.status(500).json({errorMessage: error.message})
     }
 }
+export const getTotalZakat = async (req, res) =>{
+    try {
+      const activityData = await Acct.find();
+        if(!activityData || activityData.length === 0) {
+            return res.status(404).json({message: "activity data not found"});
+        }
+        const totalZakat =  activityData.filter(item => item.acctype === 'Zakat')
+        res.status(200).json(totalZakat);       
+    } catch(error) {
+        res.status(500).json({errorMessage: error.message})
+    }
+}
 export const getTotalSalary = async (req, res) =>{
     try {
       const activityData = await Acct.find();

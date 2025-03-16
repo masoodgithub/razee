@@ -16,6 +16,10 @@ export const getExpense= async() => {
     const res = await axios.get('http://localhost:8000/api/ac/getTotalExpense');
     return res.data;
 }
+export const getZakat= async() => {
+    const res = await axios.get('http://localhost:8000/api/ac/getTotalZakat');
+    return res.data;
+}
 export const getAllActivitis= async() => {
     const res = await axios
     .get('http://localhost:8000/api/ac/getAllActivitis');
